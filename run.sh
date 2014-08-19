@@ -4,6 +4,7 @@ IN_FILE=$1
 IN_DIR=$2
 OUT_DIR=$3
 DET_CARD=$4
+DELPHES=$5
 
 h=`basename $0`
 echo "Script:    $h"
@@ -26,8 +27,9 @@ eval `scram runtime -sh`
 cd -
 
 #copy needed files
-cp /afs/cern.ch/work/j/jlawhorn/public/for-prod/Delphes_JetMET2.tar .
-tar -xvf $WORK_DIR/Delphes_JetMET2.tar
+#cp /afs/cern.ch/work/j/jlawhorn/public/for-prod/Delphes_JetMET2.tar .
+cp $DELPHES .
+tar -xvf $WORK_DIR/*.tar
 cd Delphes
 chmod -R 777 *
 ./configure
